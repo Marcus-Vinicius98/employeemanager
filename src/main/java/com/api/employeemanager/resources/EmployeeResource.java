@@ -5,6 +5,8 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
@@ -32,7 +34,7 @@ public class EmployeeResource {
 	private ModelMapper mapper;
 
 	@PostMapping(value = "/add")
-	public ResponseEntity<EmployeeDTO> create(@RequestBody EmployeeDTO obj) {
+	public ResponseEntity<EmployeeDTO> create(@Valid @RequestBody EmployeeDTO obj) {
 		var entity = service.save(obj);
 
 		var dto = mapper.map(entity, EmployeeDTO.class);
@@ -69,7 +71,7 @@ public class EmployeeResource {
 	}
 
 	@PutMapping(value = "/update/{id}")
-	public ResponseEntity<EmployeeDTO> update(@PathVariable Long id, @RequestBody EmployeeDTO obj) {
+	public ResponseEntity<EmployeeDTO> update(@PathVariable Long id, @Valid @RequestBody EmployeeDTO obj) {
 		obj.setId(id);
 		var dto = mapper.map(service.update(obj), EmployeeDTO.class);
 		dto.add(linkTo(methodOn(EmployeeResource.class).findById(id)).withSelfRel());

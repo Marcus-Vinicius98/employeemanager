@@ -18,13 +18,14 @@ public class Employee implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
+	@Column(nullable = false, updatable = false,unique = true)
 	private String email;
 	private String cpf;
 	private String jobTitle;
 	private String phone;
 	private String imageUrl;
 
-	@Column(nullable = false, updatable = false)
+	@Column(nullable = false, updatable = false,unique = true)
 	private String employeeCode;
 
 	public Employee() {
