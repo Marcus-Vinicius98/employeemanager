@@ -38,7 +38,8 @@ public class EmployeeService {
 	}
 
 	public void delete(Long id) {
-		repository.deleteById(id);
+		var obj = repository.findById(id).orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+		repository.delete(obj);
 	}
 
 }

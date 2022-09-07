@@ -6,10 +6,11 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.hateoas.RepresentationModel;
 import org.springframework.lang.NonNull;
 
-public class EmployeeDTO implements Serializable{
-	
+public class EmployeeDTO extends RepresentationModel<EmployeeDTO> implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
@@ -105,7 +106,5 @@ public class EmployeeDTO implements Serializable{
 	public void setEmployeeCode(String employeeCode) {
 		this.employeeCode = employeeCode;
 	}
-	
-	
 
 }
