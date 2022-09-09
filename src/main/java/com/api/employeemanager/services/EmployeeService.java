@@ -38,6 +38,7 @@ public class EmployeeService {
 	}
 
 	public Employee update(EmployeeDTO obj) {
+		findByCpf(obj);
 		return repository.save(mapper.map(obj, Employee.class));
 	}
 
