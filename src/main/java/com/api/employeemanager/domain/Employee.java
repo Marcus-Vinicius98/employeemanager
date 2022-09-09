@@ -10,22 +10,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Employee implements Serializable{
-	
+public class Employee implements Serializable {
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	@Column(nullable = false, updatable = false,unique = true)
 	private String email;
+
+	@Column(nullable = false, updatable = false, unique = true)
 	private String cpf;
 	private String jobTitle;
 	private String phone;
 	private String imageUrl;
 
-	@Column(nullable = false, updatable = false,unique = true)
+	@Column(nullable = false, updatable = false, unique = true)
 	private String employeeCode;
 
 	public Employee() {
