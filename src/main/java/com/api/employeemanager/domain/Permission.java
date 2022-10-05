@@ -14,7 +14,7 @@ import org.springframework.security.core.GrantedAuthority;
 
 @Entity
 @Table(name = "permission")
-public class Permission implements GrantedAuthority,  Serializable {
+public class Permission implements GrantedAuthority, Serializable {
 
 	private static final long serialVersionUID = 1L;
 
